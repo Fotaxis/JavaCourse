@@ -10,6 +10,7 @@ public class Student {
     private final int homeworkGrade;
     private final int seminarGrade;
     private final ArrayList<Module> modules;
+    private String city = "Не найдено";
 
     public Student(String fullName, String group, int activityGrade, int exerciseGrade,
                    int homeWorkGrade, int seminarGrade, ArrayList<Module> modules) {
@@ -34,14 +35,22 @@ public class Student {
         return modules;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder(
-                String.format("Имя: %s, Группа: %s, Всего баллов: Сем:%d, Акт:%d, :Упр:%d, Дз: %d\n",
-                        fullName, group, seminarGrade, activityGrade, exerciseGrade, homeworkGrade));
-        for(Module module: modules) {
-            result.append(String.format("\t%s\n", module.toString()));
-        }
+                String.format("Имя: %s, Группа: %s, Город: %s, Всего баллов: Сем:%d, Акт:%d, :Упр:%d, Дз: %d\n",
+                        fullName, group, city, seminarGrade, activityGrade, exerciseGrade, homeworkGrade));
+            //for(Module module: modules) {
+            //result.append(String.format("\t%s\n", module.toString()));
+        //}
         return result.toString();
     }
 }
