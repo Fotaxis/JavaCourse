@@ -6,7 +6,7 @@ import models.db.ORMDbRepository;
 import models.db.model.StudentEntity;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
+import vkApi.vkRepository;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
@@ -26,6 +26,8 @@ public class Main {
             LOGGER.warn("База пуста. Загрузка из csv-файла");
             UlearnCsvParser parser = new UlearnCsvParser("programmingStats.csv");
             Course course = parser.parseCourse();
+            vkRepository vk = new vkRepository();
+            vk.setCitiesToStudents(course.getStudents());
             LOGGER.info("Создание базы данных и загрузка данных (может занять до 10 минут)");
             db.saveStudents(course.getStudents());
             LOGGER.info("Загрузка в базу данных окончена");
