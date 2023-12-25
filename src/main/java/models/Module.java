@@ -10,6 +10,7 @@ public class Module {
     private final int exerciseGrade;
     private final int homeworkGrade;
     private final int seminarGrade;
+
     private final ArrayList<Exercise> exercises;
 
     public Module(String theme, int activityGrade, int exerciseGrade,
@@ -45,6 +46,8 @@ public class Module {
     public int getHomeworksGrade() {
         return homeworkGrade;
     }
+
+
 
     public int getMaxGrade(ExerciseType type) {
         return exercises.stream()

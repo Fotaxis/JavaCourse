@@ -39,7 +39,7 @@ public class UlearnCsvParser {
             String[] maxGrades = reader.readNext();
             for(String[] line: reader.readAll()) {
                 Student student = parseStudent(line, themes, header, maxGrades);
-                LOGGER.info(String.format("Загружен студент из CSV: %s", student));
+                LOGGER.info(String.format("Загружен студент %s", student));
                 students.add(student);
             }
         } catch (IOException | CsvException e) {

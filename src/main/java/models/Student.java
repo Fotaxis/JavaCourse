@@ -10,7 +10,7 @@ public class Student {
     private final int homeworkGrade;
     private final int seminarGrade;
     private final ArrayList<Module> modules;
-    private String city = "Не найдено";
+    private String city;
 
     public Student(String fullName, String group, int activityGrade, int exerciseGrade,
                    int homeWorkGrade, int seminarGrade, ArrayList<Module> modules) {

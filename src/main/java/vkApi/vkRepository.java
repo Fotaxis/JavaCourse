@@ -10,13 +10,13 @@ import com.vk.api.sdk.client.VkApiClient;
 import com.vk.api.sdk.client.actors.UserActor;
 import com.vk.api.sdk.httpclient.HttpTransportClient;
 import models.Student;
-
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class vkRepository {
-    private final int APP_ID = 0;
-    private final String CODE = "";
+    private final int APP_ID = 51820547;
+    private final String CODE = "vk1.a.XPOpd1krKdxE6ac-4MHmWZunMUw0oJt09T2lZPG7puBHCPWA9QW4_aG2ZR0W1VaQMb8kANhuLPjnd6uDaLrB3G2cOVK1MLoewRNgTseclp4GOQGdTIBEONFGz56z06Ifn_MICtDu55TGMDC_1ydVKwvZnKttWFwMN8S4JLNrVOgoXgYYJuNY7EPki1Lrv5FB";
     private final VkApiClient vk;
     private final UserActor actor;
     private static final String GROUP_ID = "basicprogrammingrtf2022";
@@ -30,7 +30,7 @@ public class vkRepository {
     }
 
     public void setCitiesToStudents(ArrayList<Student> students) {
-        ArrayList<UserXtrRole> subscribedMembers = getSubscribedStudent();
+        ArrayList<UserXtrRole> subscribedMembers = getSubscribedStudents();
         for(Student student: students){
             String[] name = student.getFullName().split(" ", 2);
             if (name.length != 2) {
@@ -44,16 +44,16 @@ public class vkRepository {
                 continue;
             }
             City city = studentFromGroup.get().getCity();
-            student.setCity(city == null ? student.getCity(): city.getTitle());
+            student.setCity(city == null || city.getTitle().isBlank() ? null: city.getTitle());
         }
     }
 
-    private ArrayList<UserXtrRole> getSubscribedStudent() {
+    private ArrayList<UserXtrRole> getSubscribedStudents() {
         int offset = 0;
         ArrayList<UserXtrRole> members = new ArrayList<>();
         try {
             while (true) {
-                var membersPart = vk.groups()
+                List<UserXtrRole> membersPart = vk.groups()
                         .getMembersWithFields(actor, Fields.CITY)
                         .groupId(GROUP_ID)
                         .offset(offset)
@@ -61,7 +61,7 @@ public class vkRepository {
                         .getItems();
                 offset += API_LIMIT;
                 members.addAll(membersPart);
-                if (offset > membersPart.size()) {
+                if (API_LIMIT > membersPart.size()) {
                     break;
                 }
             }
@@ -69,5 +69,4 @@ public class vkRepository {
             throw new RuntimeException(e);
         }
         return members;
-    }
-}
+    }}

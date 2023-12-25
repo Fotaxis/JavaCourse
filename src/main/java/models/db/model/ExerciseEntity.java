@@ -8,10 +8,10 @@ import models.ExerciseType;
 
 @DatabaseTable(tableName = "exercises")
 public class ExerciseEntity {
-    private static final String NAME_COLUMN = "name";
-    private static final String GRADE_COLUMN = "grade";
-    private static final String TYPE_COLUMN = "type";
-    private static final String MAX_GRADE = "maxGrade";
+    public static final String NAME_COLUMN = "name";
+    public static final String GRADE_COLUMN = "grade";
+    public static final String TYPE_COLUMN = "type";
+    public static final String MAX_GRADE = "maxGrade";
 
     @DatabaseField(generatedId = true)
     private int exerciseId;

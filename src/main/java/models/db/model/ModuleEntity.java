@@ -8,12 +8,12 @@ import models.Module;
 
 @DatabaseTable(tableName = "modules")
 public class ModuleEntity {
-    private static final String THEME_COLUMN = "theme";
-    private static final String STUDENT_ID_COLUMN = "student";
-    private static final String ACTIVITY_COLUMN = "activityGrade";
-    private static final String SEMINAR_COLUMN = "seminarGrade";
-    private static final String EXERCISE_COLUMN = "exerciseGrade";
-    private static final String HOMEWORK_COLUMN = "homeworkGrade";
+    public static final String THEME_COLUMN = "theme";
+    public static final String STUDENT_ID_COLUMN = "student";
+    public static final String ACTIVITY_COLUMN = "activityGrade";
+    public static final String SEMINAR_COLUMN = "seminarGrade";
+    public static final String EXERCISE_COLUMN = "exerciseGrade";
+    public static final String HOMEWORK_COLUMN = "homeworkGrade";
 
     @DatabaseField(generatedId = true)
     private long modelueId;
@@ -70,4 +70,5 @@ public class ModuleEntity {
     public int getHomeworkGrade() {
         return homeworkGrade;
     }
+
 }

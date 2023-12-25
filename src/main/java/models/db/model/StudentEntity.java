@@ -8,13 +8,13 @@ import models.Student;
 
 @DatabaseTable(tableName = "students")
 public class StudentEntity {
-    private static final String NAME_COLUMN = "fullname";
-    private static final String GROUP_COLUMN = "group";
-    private static final String CITY_COLUMN = "city";
-    private static final String ACTIVITY_COLUMN = "activityGrade";
-    private static final String SEMINAR_COLUMN = "seminarGrade";
-    private static final String EXERCISE_COLUMN = "exerciseGrade";
-    private static final String HOMEWORK_COLUMN = "homeworkGrade";
+    public static final String NAME_COLUMN = "fullname";
+    public static final String GROUP_COLUMN = "group";
+    public static final String CITY_COLUMN = "city";
+    public static final String ACTIVITY_COLUMN = "activityGrade";
+    public static final String SEMINAR_COLUMN = "seminarGrade";
+    public static final String EXERCISE_COLUMN = "exerciseGrade";
+    public static final String HOMEWORK_COLUMN = "homeworkGrade";
 
     @DatabaseField(generatedId = true)
     private long studentId;
@@ -25,7 +25,7 @@ public class StudentEntity {
     @DatabaseField(canBeNull = false)
     private String group;
 
-    @DatabaseField(canBeNull = false)
+    @DatabaseField()
     private String city;
 
     @DatabaseField()
