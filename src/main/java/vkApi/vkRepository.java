@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class vkRepository {
-    private final int APP_ID = 51820547;
-    private final String CODE = "vk1.a.XPOpd1krKdxE6ac-4MHmWZunMUw0oJt09T2lZPG7puBHCPWA9QW4_aG2ZR0W1VaQMb8kANhuLPjnd6uDaLrB3G2cOVK1MLoewRNgTseclp4GOQGdTIBEONFGz56z06Ifn_MICtDu55TGMDC_1ydVKwvZnKttWFwMN8S4JLNrVOgoXgYYJuNY7EPki1Lrv5FB";
+    private final int APP_ID = 0;
+    private final String CODE = "SECRETInfo";
     private final VkApiClient vk;
     private final UserActor actor;
     private static final String GROUP_ID = "basicprogrammingrtf2022";
