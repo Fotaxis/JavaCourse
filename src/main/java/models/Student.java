@@ -27,6 +27,22 @@ public class Student {
         return fullName;
     }
 
+    public int getActivityGrade() {
+        return activityGrade;
+    }
+
+    public int getExerciseGrade() {
+        return exerciseGrade;
+    }
+
+    public int getHomeworkGrade() {
+        return homeworkGrade;
+    }
+
+    public int getSeminarGrade() {
+        return seminarGrade;
+    }
+
     public String getGroup() {
         return group;
     }
@@ -45,13 +61,8 @@ public class Student {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder(
-                String.format("Имя: %s, Группа: %s, Город: %s, Всего баллов: Сем:%d, Акт:%d, :Упр:%d, Дз: %d\n",
-                        fullName, group, city, seminarGrade, activityGrade, exerciseGrade, homeworkGrade));
-            //for(Module module: modules) {
-            //result.append(String.format("\t%s\n", module.toString()));
-        //}
-        return result.toString();
+        return String.format("Имя: %s, Группа: %s, Город: %s, Всего баллов: Сем:%d, Акт:%d, :Упр:%d, Дз: %d\n",
+                        fullName, group, city, seminarGrade, activityGrade, exerciseGrade, homeworkGrade);
     }
 }
 
