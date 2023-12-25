@@ -61,7 +61,7 @@ public class vkRepository {
                         .getItems();
                 offset += API_LIMIT;
                 members.addAll(membersPart);
-                if (offset > membersPart.size()) {
+                if (API_LIMIT > membersPart.size()) {
                     break;
                 }
             }
